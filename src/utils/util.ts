@@ -8,7 +8,6 @@ import dayjs from "dayjs";
 export function getWeeksByDay(startDate, endDate) {
   const startWeek = dayjs(startDate).isoWeek();
   const endWeek = dayjs(endDate).isoWeek();
-  console.log(startWeek, endWeek);
   if (endDate - startDate <= 1)
     return [
       {
@@ -31,6 +30,7 @@ export function getWeeksByDay(startDate, endDate) {
   return result;
 }
 
+
 /**
  * 生成key值
  */
@@ -43,10 +43,11 @@ function createDayKey(day) {
  * @startDate 开始日期
  */
 export function getWeekDays(startDate) {
+  console.log(startDate, 'startDate---111')
   const result = [];
-  for (let i = 0; i < 7; i++) {
-    const date = dayjs(startDate).add(i, "day").format("MM-DD");
-    result.push(date);
+  for (let i = 0; i <7; i++) {
+    const date = dayjs(startDate).subtract(i, "day").format("MM-DD");
+    result.unshift(date);
   }
   console.log(result, "result");
   return result;

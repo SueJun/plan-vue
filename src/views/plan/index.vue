@@ -3,14 +3,13 @@ import dayjs from 'dayjs'
 import { computed, ref, watch } from 'vue'
 import { NTabs, NTabPane } from 'naive-ui'
 import { MONTH_MAP } from '@/constants'
-import { getWeeksByDay, getWeekDays } from '@/utils/util'
+import { getWeeksByDay, getWeekDays, getWeek } from '@/utils/util'
 
 const activeWeek = ref('')
 
 // 当前月份
 const currentMonth = computed(() => {
-  const month = parseFloat(dayjs().format('MMM'))
-  console.log(month, 'month')
+  const month = parseFloat(dayjs().format('M'))
   return MONTH_MAP.get(month).zh
 })
 

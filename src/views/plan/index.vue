@@ -2,6 +2,9 @@
 import dayjs from 'dayjs'
 import { computed, ref, watch } from 'vue'
 import { NTabs, NTabPane } from 'naive-ui'
+import {Add12Regular} from '@vicons/fluent'
+import { CashOutline as CashIcon, Add } from '@vicons/ionicons5'
+
 import { MONTH_MAP } from '@/constants'
 import { getWeeksByDay, getWeekDays, getWeek } from '@/utils/util'
 
@@ -32,6 +35,10 @@ watch(activeWeek, (val) => {
   dateList.value = getWeekDays(val)
 })
 
+const handleAdd = () => {
+
+}
+
 
 </script>
 <template>
@@ -45,7 +52,11 @@ watch(activeWeek, (val) => {
       <li v-for="item in dateList" :key="item">{{item}}</li>
     </ul>
     <div>
-      拖拽面板
+<n-button strong secondary circle type="success">
+      <template #icon>
+        <n-icon><Add /></n-icon>
+      </template>
+    </n-button>
     </div>
 
   </div>
